@@ -42,10 +42,12 @@ public class HelloWorldApp {
 	private static Logger logger = Logger.getLogger(HelloWorldApp.class);
 
 	public static void main(String[] args) {
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/spring/integration/helloWorldDemo.xml", HelloWorldApp.class);
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/spring/integration/helloWorldDemo.xml", 
+				HelloWorldApp.class);
 		MessageChannel inputChannel = context.getBean("inputChannel", MessageChannel.class);
 		PollableChannel outputChannel = context.getBean("outputChannel", PollableChannel.class);
-		inputChannel.send(new GenericMessage<String>("World"));
+		inputChannel.send(new GenericMessage<String>("Simon, you beatiful human being!"));
+		
 		logger.info("==> HelloWorldDemo: " + outputChannel.receive(0).getPayload());
 	}
 
