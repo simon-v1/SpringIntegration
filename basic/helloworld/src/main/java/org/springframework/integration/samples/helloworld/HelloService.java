@@ -16,11 +16,14 @@
 
 package org.springframework.integration.samples.helloworld;
 
+import org.springframework.stereotype.Service;
+
 /**
  * Simple POJO to be referenced from a Service Activator.
  *
  * @author Mark Fisher
  */
+@Service
 public class HelloService {
 
 	public String sayHello(String name) {
